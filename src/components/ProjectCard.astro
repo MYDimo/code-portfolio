@@ -3,6 +3,7 @@ import { Image } from "astro:assets";
 const { slug, title, pubDate, description, cover, coverAlt, tags } =
 	Astro.props.projectInfo;
 const { cardIndex } = Astro.props;
+
 ---
 
 <article class="group w-4/5 lg:w-3/5">
@@ -19,5 +20,6 @@ const { cardIndex } = Astro.props;
 			src={cover}
 			alt={coverAlt}
 		/>
+		<!-- <Image src={cover} alt={coverAlt}/> -->
 	</div>
 </article>

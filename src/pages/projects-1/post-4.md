@@ -1,11 +1,11 @@
 ---
 title: My Second Blog Post
-slug: '/projects/post-2'
+slug: '/projects/post-4'
 layout: ../../layouts/blog-layout.astro
 author: Astro Learner
-description: "I'm baby fit tbh waistcoat woke. Tousled celiac knausgaard lo-fi, biodiesel ascot beard subway tile austin williamsburg tacos tattooed wolf live-edge YOLO. Affogato gatekeep cornhole, single-origin coffee YOLO flannel !"
-cover: "/src/content/images/cronophylax-main-img.png"
-coverAlt: "Screenshot of Cronophylax, a simple website for interval training"
+description: "After learning some Astro, I couldn't stop!"
+cover: "https://docs.astro.build/assets/arc.webp"
+coverAlt: "Thumbnail of Astro arcs."
 pubDate: 2022-07-08
 tags: ["astro", "blogging", "learning in public", "successes"]
 ---

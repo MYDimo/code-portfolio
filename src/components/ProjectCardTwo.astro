@@ -1,0 +1,40 @@
+---
+import { Image } from "astro:assets";
+// const { slug, title, pubDate, description, cover, coverAlt, tags } =
+// 	Astro.props.projectInfo;
+// const { cardIndex } = Astro.props;
+
+import { getEntryBySlug, type CollectionEntry } from "astro:content";
+
+type Props = {
+	projectData: CollectionEntry<"projects">;
+	cardIndex: number;
+};
+
+const { projectData, cardIndex } = Astro.props;
+const { title, description, tags, image } = projectData.data;
+---
+
+<article class="group w-4/5 lg:w-3/5">
+	<div
+		class=`flex flex-col items-center lg:items-start lg:flex lg:flex-row justify-around ${cardIndex ? "lg:flex-row-reverse" : null } lg:h-80`
+	>
+		<div class="flex flex-col prose prose-base w-2/3 h-full">
+			<h1 class="text-center group-hover:underline underline-solid" transition:name="title">
+				<a href={`/projects${projectData.slug}`} class="no-underline">{title}</a
+				>
+			</h1>
+			<p class="text-center line-clamp-3">{description}</p>
+		</div>
+		<Image
+			src={image.src}
+			alt={image.alt}
+			width={600}
+			height={600 / 2}
+			format="webp"
+			quality="max"
+			class="w-full h-full object-contain rounded-l-lg px-5"
+			transition:name="img"
+		/>
+	</div>
+</article>

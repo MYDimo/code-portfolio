@@ -1,0 +1,45 @@
+---
+import { getCollection, type CollectionEntry } from "astro:content";
+import ProjectLayout from "../../layouts/project-layout.astro";
+import { Image } from "astro:assets";
+import { fade } from "astro:transitions";
+import MainLayout from "../../layouts/main-layout.astro";
+import { kebabCase } from "../../utils/kebabCase";
+
+export const getStaticPaths = async () => {
+	const projects = await getCollection("projects");
+
+	const paths = projects.map((project) => {
+		return {
+			params: {
+				slug: project.slug,
+			},
+			props: {
+				project,
+			},
+		};
+	});
+	return paths;
+};
+
+type Props = {
+	project: CollectionEntry<"projects">[];
+};
+
+const { project } = Astro.props;
+const { Content } = await project.render();
+---
+
+<ProjectLayout title="Project">
+	<div>
+		<h1 transition:name={kebabCase(project.data.title)}>{project.data.title}</h1>
+		<Image
+			src={project.data.image.src}
+			alt={project.data.image.alt}
+			width={1024}
+			height={1024 / 2}
+      transition:name={kebabCase(project.data.image.alt)}
+		/>
+		<Content />
+	</div>
+</ProjectLayout>

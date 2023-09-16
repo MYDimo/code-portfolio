@@ -1,0 +1,16 @@
+---
+import type { CollectionEntry } from "astro:content";
+import ProjectCard from "./ProjectCardTwo.astro";
+
+type Props = {
+	projects: CollectionEntry<"projects">[];
+};
+
+const { projects } = Astro.props;
+---
+
+<section class="flex flex-col gap-44 my-24 justify-start items-center w-full">
+  {projects.map((projectData, index) => (
+    <ProjectCard projectData={projectData} cardIndex={index % 2}/>
+  ))}
+</section>
