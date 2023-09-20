@@ -1,9 +1,5 @@
 import mikoImg from "../content/images/miko.jpg";
-import gifImg from "../content/images/gif-layers/1.jpg";
 import React, { useState } from "react";
-import { motion, useScroll, useMotionValueEvent, frame } from "framer-motion";
-import StopMotionFrames from "./StopMotionFrames";
-import { Image } from "astro:assets";
 
 
 function Home() {

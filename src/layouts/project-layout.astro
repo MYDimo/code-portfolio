@@ -1,7 +1,9 @@
 ---
 import { ViewTransitions } from "astro:transitions";
-import Nav from "../components/Nav";
+// import Nav from "../components/Nav";
 import { fade } from 'astro:transitions';
+import Nav from "../components/Nav.astro";
+
 
 ---
 
@@ -17,7 +19,8 @@ import { fade } from 'astro:transitions';
   </head>
   <!-- <body class="bg-slate-100 w-full min-h-screen"> -->
 	<body class="bg-slate-100 flex flex-col min-h-screen">
-    <Nav client:only="react"/>
+    <!-- <Nav client:only="react"/> -->
+		<Nav transition:persist />
     <main class="flex justify-around my-10 self-stretch">
       <article class="prose w-3/5 h-full" >
         <slot />

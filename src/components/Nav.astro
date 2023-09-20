@@ -1,0 +1,45 @@
+---
+
+---
+
+<nav class="fixed flex self-center w-full md:w-3/5 h-16 bg-slate-100">
+	<div
+		id="nav-overlay"
+		class="hidden w-screen h-screen flex flex-col place-content-center items-center justify-around bg-slate-500"
+	>
+		<a href="/">Home</a>
+		<a href="/projects">Projects</a>
+		<a href="/contacts">Contacts</a>
+	</div>
+	<!-- desktop view -->
+	<div
+		class="hidden md:flex gap-10 w-full justify-center items-center self-center"
+	>
+		<h1 class="flex-grow">Logo comes here</h1>
+		<a href="/">Home</a>
+		<a href="/projects">Projects</a>
+		<a href="/contacts">Contacts</a>
+	</div>
+	<!-- mobile view -->
+	<div
+		class="md:hidden absolute z-1 flex gap-10 w-full justify-around items-center self-center px-10"
+	>
+		<h1 id="logo" class="flex-grow">Logo comes here</h1>
+		<button class="hamburger">|||</button>
+	</div>
+</nav>
+
+<script>
+	import { animate } from "motion";
+
+	const hamburger = document.querySelector(".hamburger");
+	const navOverlay = document.querySelector("#nav-overlay");
+	const logo = document.querySelector("#logo");
+
+
+	hamburger.addEventListener("click", (e) => {
+		navOverlay.classList.toggle("hidden");
+		const slideIn = animate("#nav-overlay", { x: [-1000, 0] }, { duration: 1 });
+
+	});
+</script>
