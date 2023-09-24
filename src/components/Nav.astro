@@ -5,11 +5,11 @@
 <nav class="fixed flex self-center w-full md:w-3/5 h-16 bg-slate-100">
 	<div
 		id="nav-overlay"
-		class="hidden w-screen h-screen flex flex-col place-content-center items-center justify-around bg-slate-500"
+		class="hidden w-screen h-screen flex flex-col place-content-center items-center justify-center bg-slate-500 text-3xl [&>*]:p-10"
 	>
-		<a href="/">Home</a>
-		<a href="/projects">Projects</a>
-		<a href="/contacts">Contacts</a>
+		<a href="/">home</a>
+		<a href="/projects">projects</a>
+		<a href="/contacts">contacts</a>
 	</div>
 	<!-- desktop view -->
 	<div
@@ -25,21 +25,76 @@
 		class="md:hidden absolute z-1 flex gap-10 w-full justify-around items-center self-center px-10"
 	>
 		<h1 id="logo" class="flex-grow">Logo comes here</h1>
-		<button class="hamburger">|||</button>
+		<button class="hamburger space-y-2">
+			<div class="lineOne w-8 h-0.5 bg-gray-600"></div>
+			<div class="lineTwo w-8 h-0.5 bg-gray-600"></div>
+			<div class="lineThree w-8 h-0.5 bg-gray-600"></div>
+		</button>
 	</div>
 </nav>
 
 <script>
-	import { animate } from "motion";
+	import { animate, timeline } from "motion";
 
 	const hamburger = document.querySelector(".hamburger");
 	const navOverlay = document.querySelector("#nav-overlay");
 	const logo = document.querySelector("#logo");
-
+	let navActive = false;
 
 	hamburger.addEventListener("click", (e) => {
-		navOverlay.classList.toggle("hidden");
-		const slideIn = animate("#nav-overlay", { x: [-1000, 0] }, { duration: 1 });
-
+		if (navActive) {
+			animate(navOverlay, { y: [0, -5000] }, { duration: 0.5 }).finished.then(
+				() => {
+					navOverlay.classList.toggle("hidden");
+				}
+			);
+			navActive = false;
+			animate(
+				".lineOne",
+				{
+					transform: "translateY(0) rotate(0)",
+				},
+				{ duration: 0.2 }
+			);
+			animate(
+				".lineThree",
+				{
+					transform: "translateY(0) rotate(0)",
+				},
+				{ duration: 0.2 }
+			);
+			animate(
+				".lineTwo",
+				{
+					opacity: 1,
+				},
+				{ duration: 0.2 }
+			);
+		} else {
+			animate(navOverlay, { y: [-1000, 0] }, { duration: 0.4 });
+			navActive = true;
+			animate(
+				".lineOne",
+				{
+					transform: "translateY(10px) rotate(45deg)",
+				},
+				{ duration: 0.2 }
+			);
+			animate(
+				".lineThree",
+				{
+					transform: "translateY(-10px) rotate(-45deg)",
+				},
+				{ duration: 0.2 }
+			);
+			animate(
+				".lineTwo",
+				{
+					opacity: 0,
+				},
+				{ duration: 0.2}
+			);
+			navOverlay.classList.toggle("hidden");
+		}
 	});
 </script>
