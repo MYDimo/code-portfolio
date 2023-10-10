@@ -31,7 +31,6 @@ const { Content } = await project.render();
 ---
 
 <ProjectLayout title="Project">
-	<div>
 		<h1 transition:name={kebabCase(project.data.title)}>{project.data.title}</h1>
 		<Image
 			src={project.data.image.src}
@@ -41,5 +40,4 @@ const { Content } = await project.render();
       transition:name={kebabCase(project.data.image.alt)}
 		/>
 		<Content />
-	</div>
 </ProjectLayout>
