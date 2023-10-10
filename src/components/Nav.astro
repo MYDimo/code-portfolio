@@ -2,7 +2,7 @@
 
 ---
 
-<nav class="fixed flex self-center w-full md:w-3/5 h-16 bg-slate-100">
+<div class="fixed flex self-center w-full md:w-4/5 h-20 bg-slate-100">
 	<div
 		id="nav-overlay"
 		class="hidden w-screen h-screen flex flex-col place-content-center items-center justify-center bg-slate-500 text-3xl [&>*]:p-10"
@@ -13,25 +13,27 @@
 	</div>
 	<!-- desktop view -->
 	<div
-		class="hidden md:flex gap-10 w-full justify-center items-center self-center"
+		class="hidden md:flex gap-10 w-full justify-around items-center self-center"
 	>
-		<h1 class="flex-grow">Logo comes here</h1>
-		<a href="/">Home</a>
-		<a href="/projects">Projects</a>
-		<a href="/contacts">Contacts</a>
+		<a href="/"><img src="/icon.svg" alt="Mihaylo Dimo" class="w-16 h-16" /></a>
+		<div class="flex gap-14">
+			<a href="/">Home</a>
+			<a href="/projects">Projects</a>
+			<a href="/contacts">Contacts</a>
+		</div>
 	</div>
 	<!-- mobile view -->
 	<div
 		class="md:hidden absolute z-1 flex gap-10 w-full justify-around items-center self-center px-10"
 	>
-		<h1 id="logo" class="flex-grow">Logo comes here</h1>
+		<a href="/"><img src="/icon.svg" alt="Mihaylo Dimo" class="w-14 h-14" /></a>
 		<button class="hamburger space-y-2">
-			<div class="lineOne w-8 h-0.5 bg-gray-600"></div>
-			<div class="lineTwo w-8 h-0.5 bg-gray-600"></div>
-			<div class="lineThree w-8 h-0.5 bg-gray-600"></div>
+			<div class="lineOne w-10 h-1 rounded-lg bg-black"></div>
+			<div class="lineTwo w-10 h-1 rounded-lg bg-black"></div>
+			<div class="lineThree w-10 h-1 rounded-lg bg-black"></div>
 		</button>
 	</div>
-</nav>
+</div>
 
 <script>
 	import { animate, timeline } from "motion";
@@ -76,14 +78,14 @@
 			animate(
 				".lineOne",
 				{
-					transform: "translateY(10px) rotate(45deg)",
+					transform: "translateY(12px) rotate(45deg)",
 				},
 				{ duration: 0.2 }
 			);
 			animate(
 				".lineThree",
 				{
-					transform: "translateY(-10px) rotate(-45deg)",
+					transform: "translateY(-12px) rotate(-45deg)",
 				},
 				{ duration: 0.2 }
 			);
