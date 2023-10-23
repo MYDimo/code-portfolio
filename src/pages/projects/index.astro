@@ -5,13 +5,18 @@ import { Image } from "astro:assets";
 import { kebabCase } from "../../utils/kebabCase";
 
 const allProjects = await getCollection("projects");
+console.log(allProjects);
+
+const gradientTr = "bg-gradient-to-tr from-slate-100 via-slate-50 to-slate-100"
+const gradientTl = "bg-gradient-to-tl from-slate-100 via-slate-50 to-slate-100"
 ---
 
 <MainLayout title="Projects">
 	<section class="flex flex-col gap-24 sm:gap-28 lg:gap-32 my-44 justify-start items-center w-full">
 		{
 			allProjects.map((project, cardIndex) => (
-				<article class="group w-full lg:w-4/5 p-5 sm:p-7 lg:p-10 bg-gradient-to-b lg:bg-gradient-to-r from-slate-100 via-slate-200 to-slate-100 rounded-[35px]">
+				<article class=`group w-11/12 lg:w-4/5 p-10 sm:p-7 lg:py-16 bg-gradient-to-b ${
+								cardIndex % 2 ? gradientTr : gradientTl} rounded-[35px]`>
 					<a href={`/projects${project.slug}`} class="no-underline">
 						<div
 							class={`flex flex-col items-center align-center lg:items-center lg:flex lg:flex-row justify-around ${
@@ -25,6 +30,9 @@ const allProjects = await getCollection("projects");
 								>
 									{project.data.title}
 								</h1>
+								<small class="italic text-slate-400">
+									{project.data.pubDate.toDateString()}
+								</small>
 								<p class="line-clamp-3 my-8">{project.data.description}</p>
 								<small class="italic text-slate-400">
 									{project.data.tags.map((x) => x + "\xa0\xa0\xa0\xa0")}
