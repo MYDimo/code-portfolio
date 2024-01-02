@@ -2,8 +2,6 @@
 import { getCollection, type CollectionEntry } from "astro:content";
 import ProjectLayout from "../../layouts/project-layout.astro";
 import { Image } from "astro:assets";
-import { fade } from "astro:transitions";
-import MainLayout from "../../layouts/main-layout.astro";
 import { kebabCase } from "../../utils/kebabCase";
 
 export const getStaticPaths = async () => {
@@ -38,6 +36,7 @@ const { Content } = await project.render();
 			width={1024}
 			height={1024 / 2}
       transition:name={kebabCase(project.data.image.alt)}
-		/>
+			class="border-4 border-slate-50 rounded-[30px]"
+			/>
 		<Content />
 </ProjectLayout>

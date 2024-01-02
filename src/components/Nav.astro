@@ -2,14 +2,16 @@
 
 ---
 
+<!-- another way for sticky - sticky top-0 z-50 -->
 <div class="fixed flex self-center w-full md:w-4/5 h-20 bg-slate-100 z-10">
+	<!-- mobile overlay -->
 	<div
 		id="nav-overlay"
 		class="hidden w-screen h-screen flex flex-col place-content-center items-center justify-center bg-slate-500 text-3xl [&>*]:p-10"
 	>
-		<a href="/">home</a>
-		<a href="/projects">projects</a>
-		<a href="/contacts">contacts</a>
+		<a href="/">Home</a>
+		<a href="/projects">Projects</a>
+		<a href="/playground">Playground</a>
 	</div>
 	<!-- desktop view -->
 	<div
@@ -19,7 +21,7 @@
 		<div class="flex gap-14">
 			<a href="/">Home</a>
 			<a href="/projects">Projects</a>
-			<a href="/contacts">Contacts</a>
+			<a href="/playground">Playground</a>
 		</div>
 	</div>
 	<!-- mobile view -->
