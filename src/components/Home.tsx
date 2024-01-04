@@ -35,6 +35,7 @@ function Home() {
 
 				<h1 className="text-3xl font-bold">Hi, I'm Mihaylo.</h1>
 				<h2 className="text-xl font-bold">and I'm a web developer</h2>
+				<h2 className="text-xl">this website is WIP</h2>
 			</section>
 			<section className="xl:w-1/3 lg:w-1/3 md:w-1/2 sm:w-1/2 w-4/5 flex flex-col justify-center h-screen">
 				<p>
