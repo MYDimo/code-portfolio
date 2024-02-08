@@ -5,11 +5,13 @@ import react from "@astrojs/react";
 import mdx from "@astrojs/mdx";
 
 import vercel from "@astrojs/vercel/serverless";
+import vercelStatic from '@astrojs/vercel/static';
 
 // https://astro.build/config
 export default defineConfig({
-  output: 'hybrid',
-  adapter: vercel(),
+  // Must be 'static' or 'hybrid'
+  output: 'static',
+  adapter: vercelStatic(),
   integrations: [tailwind(), react(), mdx()]
   // image: {
   //   domains: ["astro.build"],
