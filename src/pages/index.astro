@@ -1,196 +1,104 @@
 ---
+import { Image } from "astro:assets";
 import MainLayout from "../layouts/main-layout.astro";
+import "../style/main.css";
 import mikoImg from "../content/images/miko.jpg";
+import Bento from "../components/BentoGrid/BentoContainer.astro";
 ---
 
 <MainLayout title="Home">
-	<!-- <Home client:only="react" /> -->
 	<div class="w-full flex flex-col items-center">
 		<section
 			class="homeHero flex flex-col items-center justify-center h-screen mb-10"
 		>
-			<img
-				src={mikoImg.src}
+			<Image
+				src={mikoImg}
 				class="xl:w-2/4 lg:w-1/3 md:w-2/4 w-3/4 h-auto rounded-3xl shadow-lg"
 				alt="A portrait of Mihaylo Dimo"
 			/>
-
 			<h1 class="text-3xl font-bold">Hi, I'm Mihaylo.</h1>
 			<h2 class="text-xl font-bold">and I'm a web developer</h2>
 			<h2 class="text-xl font-italics">this website is currently WIP</h2>
 		</section>
-		<section
-			class="aboutMe w-full mb-[200px] flex justify-center items-center gap-8 bg-amber-50 shadow-[0px_0px_60px_50px_#fffbeb]" 
-		>
-			<p class="w-1/3">
-				Grailed YOLO gorpcore cliche solarpunk gentrify gastropub gochujang. Yes
-				plz forage cornhole, photo booth squid tousled taxidermy keffiyeh hot
-				chicken pickled mlkshk direct trade JOMO sus tattooed. Celiac bespoke
-				synth, actually shabby chic meh sustainable taxidermy selfies. Biodiesel
-				echo park PBR&B fashion axe synth paleo. Pork belly gluten-free
-				cornhole, +1 listicle gorpcore helvetica.
-			</p>
-			<div class="w-[260px] flex justify-center">
-				<img
-					src={mikoImg.src}
-					class="rotoCard w-[250px] h-[250px] rounded-full shadow-lg object-cover"
-					alt="A portrait of Mihaylo Dimo"
-				/>
-			</div>
-		</section>
-		<section
-			class="textSection xl:w-1/3 lg:w-1/3 md:w-1/2 sm:w-1/2 w-4/5 flex flex-col mb-[200px]"
-		>
-			<h3>
-				I like challenging myself with things that I don't understand and don't
-				know how to do. I enjoy creating aestetically pleasing websites that
-				focus on user experience and easy to handle interface. There are
-				incredible amout of stuff to learn and do, but using the "one problem at
-				a time" mindset and approach, I believe anything is possible.
-			</h3>
-		</section>
-		<section
-			class="textSection xl:w-1/3 lg:w-1/3 md:w-1/2 sm:w-1/2 w-4/5 flex flex-col mb-[200px]"
-		>
-			<h3>
-				I like challenging myself with things that I don't understand and don't
-				know how to do. I enjoy creating aestetically pleasing websites that
-				focus on user experience and easy to handle interface. There are
-				incredible amout of stuff to learn and do, but using the "one problem at
-				a time" mindset and approach, I believe anything is possible.
-			</h3>
-		</section>
-		<section
-			class="textSection xl:w-1/3 lg:w-1/3 md:w-1/2 sm:w-1/2 w-4/5 flex flex-col mb-[200px]"
-		>
-			<h3>
-				I like challenging myself with things that I don't understand and don't
-				know how to do. I enjoy creating aestetically pleasing websites that
-				focus on user experience and easy to handle interface. There are
-				incredible amout of stuff to learn and do, but using the "one problem at
-				a time" mindset and approach, I believe anything is possible.
-			</h3>
-		</section>
-		<!-- <section
-			class="textSection xl:w-1/3 lg:w-1/3 md:w-1/2 sm:w-1/2 w-4/5 flex flex-col mb-[200px]"
-		>
-			<h3>
-				I like challenging myself with things that I don't understand and don't
-				know how to do. I enjoy creating aestetically pleasing websites that
-				focus on user experience and easy to handle interface. There are
-				incredible amout of stuff to learn and do, but using the "one problem at
-				a time" mindset and approach, I believe anything is possible.
-			</h3>
-		</section>
-		<section
-			class="textSection xl:w-1/3 lg:w-1/3 md:w-1/2 sm:w-1/2 w-4/5 flex flex-col mb-[200px]"
-		>
-			<h3>
-				I like challenging myself with things that I don't understand and don't
-				know how to do. I enjoy creating aestetically pleasing websites that
-				focus on user experience and easy to handle interface. There are
-				incredible amout of stuff to learn and do, but using the "one problem at
-				a time" mindset and approach, I believe anything is possible.
-			</h3>
-		</section>
-		<section
-			class="textSection xl:w-1/3 lg:w-1/3 md:w-1/2 sm:w-1/2 w-4/5 flex flex-col mb-[200px]"
-		>
-			<h3>
-				I like challenging myself with things that I don't understand and don't
-				know how to do. I enjoy creating aestetically pleasing websites that
-				focus on user experience and easy to handle interface. There are
-				incredible amout of stuff to learn and do, but using the "one problem at
-				a time" mindset and approach, I believe anything is possible.
-			</h3>
-		</section>
-		<section
-			class="textSection xl:w-1/3 lg:w-1/3 md:w-1/2 sm:w-1/2 w-4/5 flex flex-col mb-[200px]"
-		>
-			<h3>
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt,
-				corrupti! Perferendis fugit repellat ipsam voluptas similique voluptates
-				porro culpa placeat! Porro commodi quam sint, aliquam sunt labore
-				officia. Quos, cumque Lorem ipsum dolor sit amet consectetur adipisicing
-				elit. Cumque molestiae blanditiis dolorem vel aut vero dolorum porro
-				iure quia illo nam ratione, nemo dolores? Reiciendis dolor voluptates
-				iusto ipsa placeat.
-			</h3>
-		</section> -->
+		<Bento />
 	</div>
-</MainLayout>
 
-<script>
-	import { animate, inView, scroll } from "motion";
-	import { getRandomIntInclusive } from "../utils/getRandomIntInclusive";
+	<script>
+		import { animate, inView, scroll } from "motion";
+		import { getRandomIntInclusive } from "../utils/getRandomIntInclusive";
 
-	const allImgs = await import.meta.glob(
-		"/src/content/images/testImages/*.jpg"
-	);
-	const newArr = Object.keys(allImgs);
-	const rotoCard = document.querySelector(".rotoCard");
-	const aboutMeSection = document.querySelector(".aboutMe");
+		const allImgs = await import.meta.glob(
+			"/src/content/images/testImages/*.jpg"
+		);
+		const newArr = Object.keys(allImgs);
+		const rotoCard = document.querySelector(".rotoCard");
+		const aboutMeSection = document.querySelector(".aboutMe");
 
-	document.querySelectorAll(".homeHero").forEach((item) => {
-		scroll(animate(item, { opacity: [1, 0] }), {
-			target: item,
-			offset: ["start start", "end 60%"],
+		document.querySelectorAll(".homeHero").forEach((item) => {
+			scroll(animate(item, { opacity: [1, 0] }), {
+				target: item,
+				offset: ["start start", "end 60%"],
+			});
 		});
-	});
 
-	inView(".aboutMe", ({ target }) => {
-		const controls = animate(
-			rotoCard,
-			{ width: ["250px", "0px", "250px"] },
-			{ duration: 2, repeat: 0 }
+		inView(
+			".aboutMe",
+			({ target }) => {
+				const controls = animate(
+					rotoCard,
+					{ width: ["250px", "0px", "250px"] },
+					{ duration: 2, repeat: 0 }
+				);
+
+				return (leaveInfo) => controls.stop();
+			},
+			{ amount: 1 }
 		);
 
-		return (leaveInfo) => controls.stop()
-	}, {amount: 1});
+		// aboutMeSection.addEventListener("mouseenter", () => {
+		// 		animate(
+		// 		rotoCard,
+		// 		// { rotateY: "2turn", opacity: [0, 1] },
+		// 		{ width: ["250px", "0px", "250px"] },
+		// 		{ duration: 2, repeat: 0 }
+		// 	);
+		// 	setTimeout(() => {
+		// 		changeImg();
+		// 	}, 600)
+		// })
 
-	// aboutMeSection.addEventListener("mouseenter", () => {
-	// 		animate(
-	// 		rotoCard,
-	// 		// { rotateY: "2turn", opacity: [0, 1] },
-	// 		{ width: ["250px", "0px", "250px"] },
-	// 		{ duration: 2, repeat: 0 }
-	// 	);
-	// 	setTimeout(() => {
-	// 		changeImg();
-	// 	}, 600)
-	// })
+		// const intervalId = setInterval(changeImg, 3100);
 
-	// const intervalId = setInterval(changeImg, 3100);
+		function changeImg() {
+			rotoCard.src = newArr[getRandomIntInclusive(0, 48)];
+		}
 
-	function changeImg() {
-		rotoCard.src = newArr[getRandomIntInclusive(0, 48)];
-	}
+		// rotoCard.src = "/src/content/images/miko.jpg";
+		// 	console.log(index);
+		// 		animate(rotoCard, { rotateY: "1.5turn" }, { duration: 1 }).finished.then(
+		// 			() => {
+		// 				rotoCard.src = newArr[index];
+		// 				animate(rotoCard, { rotateY: "2turn" }, { duration: 1 }).finished.then(() => {
+		// 					setTimeout(() => {
+		// 						index++;
+		// 						console.log('here in the timeout man');
+		// 					}, 2000)
+		// 				});
+		// 			}
+		// 		);
 
-	// rotoCard.src = "/src/content/images/miko.jpg";
-	// 	console.log(index);
-	// 		animate(rotoCard, { rotateY: "1.5turn" }, { duration: 1 }).finished.then(
-	// 			() => {
-	// 				rotoCard.src = newArr[index];
-	// 				animate(rotoCard, { rotateY: "2turn" }, { duration: 1 }).finished.then(() => {
-	// 					setTimeout(() => {
-	// 						index++;
-	// 						console.log('here in the timeout man');
-	// 					}, 2000)
-	// 				});
-	// 			}
-	// 		);
-
-	// document.querySelectorAll(".textSection").forEach((item) => {
-	// 	scroll(
-	// 		animate(item, {
-	// 			opacity: [0, 1, 1, 0],
-	// 			scale: [0, 1, 1, 0],
-	// 			y: [150, -400],
-	// 		}),
-	// 		{
-	// 			target: item,
-	// 			offset: ["start end", "start start"],
-	// 		}
-	// 	);
-	// });
-</script>
+		// document.querySelectorAll(".textSection").forEach((item) => {
+		// 	scroll(
+		// 		animate(item, {
+		// 			opacity: [0, 1, 1, 0],
+		// 			scale: [0, 1, 1, 0],
+		// 			y: [150, -400],
+		// 		}),
+		// 		{
+		// 			target: item,
+		// 			offset: ["start end", "start start"],
+		// 		}
+		// 	);
+		// });
+	</script>
+</MainLayout>

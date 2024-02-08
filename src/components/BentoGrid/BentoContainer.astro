@@ -1,0 +1,44 @@
+---
+import { Image } from "astro:assets";
+import Icon from "./Icon.astro";
+import playgroundImg from "../../content/images/sandbox.webp";
+import LatestProjects from "./LatestProjects.astro";
+import SpotifyPlaylists from "./SpotifyPlaylists.astro";
+import Apod from "./Apod.astro";
+---
+
+<div class="parent w-2/3 gap-10 [&>*]:rounded-2xl">
+	<LatestProjects />
+	<div class="status">status check</div>
+	<div class="photography">photography</div>
+	<a href="https://github.com/MYDimo?tab=repositories">
+		<Icon iconName="github" />
+	</a>
+	<a href="https://myanimelist.net/profile/olhmi"><Icon iconName="mal" /></a>
+	<div class="playground relative w-full">
+		<div
+			class="absolute 1fr inset-x-0 bottom-0 text-center text-white text py-2"
+		>
+			<a href="/playground" class="font-bold hover:underline"
+				>playground - <br /> small stuff, but pretty cool
+			</a>
+		</div>
+		<Image
+			src={playgroundImg}
+			class="object-cover object-left h-full rounded-2xl"
+			alt="image of a child's hands digging sand in a sandbox"
+		/>
+	</div>
+	<div class="lastfm">lastfm</div>
+	<div class="gradient">gradient</div>
+	<a href="https://www.instagram.com/mihaylo.dimo/"
+		><Icon iconName="instagram" /></a
+	>
+	<a href="https://www.linkedin.com/in/mihaylo-dimo/"
+		><Icon iconName="linkedin" /></a
+	>
+	<a href="https://discord.com/users/daimyoolhmi"><Icon iconName="discord" /></a
+	>
+	<Apod />
+	<SpotifyPlaylists />
+</div>

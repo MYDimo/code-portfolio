@@ -1,5 +1,5 @@
 import { defineConfig } from 'astro/config';
-import netlify from "@astrojs/netlify/functions";
+import netlify from '@astrojs/netlify';
 import tailwind from "@astrojs/tailwind";
 import react from "@astrojs/react";
 
@@ -7,10 +7,12 @@ import mdx from "@astrojs/mdx";
 
 // https://astro.build/config
 export default defineConfig({
-  output: "hybrid",
-  adapter: netlify(),
+  output: 'static',
+  adapter: netlify({
+    imageCDN: false,
+  }),
   integrations: [tailwind(), react(), mdx()],
   image: {
-    remotePatterns: [{ protocol: "https" }],
+    domains: ["astro.build"],
   }
 });
