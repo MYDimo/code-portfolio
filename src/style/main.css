@@ -1,7 +1,8 @@
 .parent {
 	display: grid;
-	grid-template-columns: repeat(12, 1fr);
-	grid-template-rows: repeat(8, 1fr);
+	/* grid-template-columns: repeat(12, 1fr); */
+	grid-template-columns: repeat(10, minmax(10px, 1fr));
+	grid-template-rows: repeat(8, minmax(10px, 1fr));
 	grid-column-gap: 20px;
 	grid-row-gap: 20px;
 }
@@ -19,39 +20,42 @@
 }
 .github {
 	grid-area: 4 / 5 / 5 / 6;
-	border: 1px solid black;
 }
 .mal {
 	grid-area: 5 / 5 / 6 / 6;
-	border: 1px solid black;
 }
 .playground {
 	grid-area: 1 / 5 / 4 / 8;
 }
-.lastfm {
+/* .lastfm {
 	grid-area: 1 / 11 / 9 / 13;
 	border: 1px solid black;
-}
+} */
 .gradient {
 	grid-area: 1 / 8 / 3 / 11;
 	border: 1px solid black;
 }
 .instagram {
 	grid-area: 3 / 8 / 4 / 9;
-	border: 1px solid black;
 }
 .linkedin {
 	grid-area: 3 / 9 / 4 / 10;
-	border: 1px solid black;
 }
 .discord {
 	grid-area: 3 / 10 / 4 / 11;
-	border: 1px solid black;
 }
 .apod {
 	grid-area: 4 / 6 / 7 / 11;
-	border: 1px solid black;
 }
 .whoami {
 	grid-area: 7 / 6 / 9 / 11;
+}
+
+.xterm * {
+	scrollbar-width: none;
+}
+
+.xterm *::-webkit-scrollbar {
+	display: none;
+	position: relative;
 }

@@ -1,19 +1,20 @@
 ---
 import { Image } from "astro:assets";
+// import { Picture } from "astro-imagetools/components";
 const response = await fetch(
 	"https://api.nasa.gov/planetary/apod?api_key=Ja94JMq1boHsHu6Y53Uei9AY7YF9iWu1GHJb0inB"
 );
 const apodData = await response.json();
 ---
 
-<div class="apod relative max-h-64">
+<div class="apod relative max-h-64 bg-slate-100">
 	<a href="https://apod.nasa.gov/apod/">
 		<Image
 			class="object-cover h-full rounded-2xl"
 			src={apodData.url}
 			width={500}
 			height={100}
-			quality={65}
+			quality={100}
 			loading="lazy"
 			alt={apodData.title}
 		/>

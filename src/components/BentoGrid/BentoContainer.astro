@@ -4,12 +4,15 @@ import Icon from "./Icon.astro";
 import playgroundImg from "../../content/images/sandbox.webp";
 import LatestProjects from "./LatestProjects.astro";
 import SpotifyPlaylists from "./SpotifyPlaylists.astro";
-import Apod from "./Apod.astro";
+// import Apod from "./Apod.astro";
+import Apod from "../react/Apod";
+import StatusCheck from "./StatusCheck.astro";
 ---
 
-<div class="parent w-2/3 gap-10 [&>*]:rounded-2xl">
+<div class="parent w-2/3 3xl:w-3/5 gap-10 [&>*]:rounded-2xl">
 	<LatestProjects />
-	<div class="status">status check</div>
+	<!-- <div class="status">status check</div> -->
+	<StatusCheck />
 	<div class="photography">photography</div>
 	<a href="https://github.com/MYDimo?tab=repositories">
 		<Icon iconName="github" />
@@ -29,7 +32,7 @@ import Apod from "./Apod.astro";
 			alt="image of a child's hands digging sand in a sandbox"
 		/>
 	</div>
-	<div class="lastfm">lastfm</div>
+	<!-- <div class="lastfm">lastfm</div> -->
 	<div class="gradient">gradient</div>
 	<a href="https://www.instagram.com/mihaylo.dimo/"
 		><Icon iconName="instagram" /></a
@@ -39,6 +42,7 @@ import Apod from "./Apod.astro";
 	>
 	<a href="https://discord.com/users/daimyoolhmi"><Icon iconName="discord" /></a
 	>
-	<Apod />
+	<!-- <Apod /> -->
+	<Apod client:load />
 	<SpotifyPlaylists />
 </div>
