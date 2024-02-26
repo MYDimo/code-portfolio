@@ -43,6 +43,14 @@
 	grid-area: 7 / 6 / 9 / 11;
 }
 
+@media (width <= 768px) {
+	.parent {
+		display: flex;
+		flex-direction: column;
+		width: 90%;
+	}
+}
+
 .xterm * {
 	scrollbar-width: none;
 }
