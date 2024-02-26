@@ -3,16 +3,18 @@ import "xterm/css/xterm.css";
 ---
 
 <div
-	class="status flex flex-col pl-2 pt-2 rounded-2xl bg-gray-600 overflow-hidden"
+	class="terminal flex flex-nowrap justify-center items-start w-full h-full bg-gray-600"
 >
-	<div id="terminal" class="h-[300px]"></div>
+	<div class="container min-h-0 h-full w-full box-border grow-0">
+		<div id="terminal" class="h-[300px] rounded-2xl p-4"></div>
+	</div>
 </div>
 
 <script>
 	import { Terminal } from "xterm";
 	import { FitAddon } from "@xterm/addon-fit/lib/addon-fit.js";
 	import { WebLinksAddon } from "@xterm/addon-web-links/lib/addon-web-links.js";
-  import { keyTrigger } from "./utils";
+	import { keyTrigger } from "./utils";
 	const term = new Terminal({
 		fontFamily: '"Cascadia Code", Menlo, monospace',
 		fontSize: 13,
@@ -43,15 +45,45 @@ import "xterm/css/xterm.css";
 		allowProposedApi: true,
 	});
 	const fitAddon = new FitAddon();
-  const webLinks = new WebLinksAddon()
-	const promptLoc = " mihaylo-dimo: ~ % ";
+	// const webLinks = new WebLinksAddon();
+	const promptLoc = "\x1B[1mmihaylo-dimo: ~ %\x1B[22m ";
+	const proptHello = `\x1b[32;3mtype "help" to check the commands\x1b[0;23m\r\x1b[0J${promptLoc}`;
+	let stringArr = proptHello.split("");
 	const commandList = ["help", "clear", "ls", "system_info"];
 
 	term.loadAddon(fitAddon);
-  term.loadAddon(webLinks);
+	term.loadAddon(new WebLinksAddon(onLinkClick));
 	term.open(document.getElementById("terminal"));
 	fitAddon.fit();
-	term.write("\x1B[1mmihaylo-dimo: ~ %\x1B[22m ");
+	term.focus();
+
+	function onLinkClick(_event, url) {
+		console.log(`clicked link: ${url}`);
+		window.open(url);
+	}
+
+	function staggeredHello() {
+		if (stringArr.length !== 0) {
+			term.write(stringArr.shift());
+		}
+		setTimeout(() => {
+			window.requestAnimationFrame(staggeredHello);
+		}, 50);
+	}
+
+	const observer = new IntersectionObserver(
+		function (entries) {
+			if (entries[0].isIntersecting === true) {
+				window.requestAnimationFrame(staggeredHello);
+				// term.write("\x1B[1mmihaylo-dimo: ~ %\x1B[22m ");
+			} else {
+				console.log("Item has just DISAPPEARED!");
+			}
+		},
+		{ threshold: [0] }
+	);
+
+	observer.observe(document.querySelector("#terminal"));
 
 	term.onData((e) => {
 		keyTrigger(e, term);

@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from "react";
-import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 
 function Apod() {
@@ -34,17 +33,15 @@ function Apod() {
 			</div>
 			{apodData && (
 				<div
-					className={`apod relative rounded-2xl w-full h-[19vw] min-h-0 bg-zinc-200 ${
+					className={`apod relative rounded-2xl w-full h-[38vh] min-h-0 bg-zinc-200 ${
 						isImageLoading ? "hidden" : "block"
 					}`}
 				>
 					<a href="https://apod.nasa.gov/apod/">
 						<img
-							className={`object-cover w-full h-full rounded-2xl`}
+							className={`object-cover w-full h-full rounded-2xl `}
 							src={apodData.url}
 							alt={apodData.title}
-							// src={"https://apod.nasa.gov/apod/image/2402/Rosette2024newt533mmcopy1024.png"}
-							// alt={apodData.title}
 							onLoad={(imgEl) => onLoadHandler(imgEl)}
 						/>
             <div className="opacity-0 hover:opacity-100 duration-300 absolute inset-0 z-2 flex justify-center items-center text-6xl prose overflow-hidden text-white font-bold text-center">
