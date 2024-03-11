@@ -43,11 +43,11 @@
 	grid-area: 7 / 6 / 9 / 11;
 }
 
-@media (width <= 768px) {
+@media (width <= 976px) {
 	.parent {
 		display: flex;
-		flex-direction: column;
-		width: 90%;
+		width: 80%;
+		flex-wrap: wrap;
 	}
 }
 

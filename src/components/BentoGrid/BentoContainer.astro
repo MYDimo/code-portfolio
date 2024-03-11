@@ -10,7 +10,7 @@ import Apod from "../react/Apod";
 import StatusCheck from "./StatusCheck.astro";
 ---
 
-<div class="parent sm:w-4/5 md:w-2/3 3xl:w-3/5 [&>*]:rounded-2xl">
+<div class="parent lg:w-2/3 3xl:w-3/5 [&>*]:rounded-2xl">
 	<LatestProjects />
 	<!-- <div class="status">status check</div> -->
 	<StatusCheck />
@@ -29,10 +29,6 @@ import StatusCheck from "./StatusCheck.astro";
 			</div>
 		</a>
 	</div>
-	<a href="https://github.com/MYDimo?tab=repositories">
-		<Icon iconName="github" />
-	</a>
-	<a href="https://myanimelist.net/profile/olhmi"><Icon iconName="mal" /></a>
 	<div class="playground relative w-full group">
 			<a href="/playground">
 				<Image
@@ -48,18 +44,22 @@ import StatusCheck from "./StatusCheck.astro";
 				</div>
 			</a>
 	</div>
+	<a href="https://github.com/MYDimo?tab=repositories" class="flex max-sm:w-[85px] srounded-2xl">
+		<Icon iconName="github" />
+	</a>
+	<a href="https://myanimelist.net/profile/olhmi" class="flex max-sm:w-[85px]"><Icon iconName="mal" /></a>
 	<!-- <div class="lastfm">lastfm</div> -->
 	<div class="gradient group">
 		<div class="w-full h-full bg-gradient-to-r from-teal-400 to-yellow-200 rounded-2xl group-hover:hidden duration-500"></div>
 		<div class="w-full h-full bg-gradient-to-r from-teal-400 to-yellow-200 bg-clip-text text-transparent text font-bold text-center text-7xl leading-normal hidden group-hover:flex duration-500 cursor-default">I &lt3 gradients</div>
 	</div>
-	<a href="https://www.instagram.com/mihaylo.dimo/"
+	<a href="https://www.instagram.com/mihaylo.dimo/" class="flex max-sm:w-[85px]"
 		><Icon iconName="instagram" /></a
 	>
-	<a href="https://www.linkedin.com/in/mihaylo-dimo/"
+	<a href="https://www.linkedin.com/in/mihaylo-dimo/" class="flex max-sm:w-[85px]"
 		><Icon iconName="linkedin" /></a
 	>
-	<a href="https://discord.com/users/daimyoolhmi"><Icon iconName="discord" /></a
+	<a href="https://discord.com/users/daimyoolhmi" class="flex max-sm:w-[85px]"><Icon iconName="discord" /></a
 	>
 	<!-- <Apod /> -->
 	<Apod client:visible />
